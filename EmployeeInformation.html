@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee Information</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="scripts/empinfo.js">    </script>
+    <script>
+      $(document).ready(function() {
+	  $("#data").submit(function (e) {
+	      e.preventDefault();
+	      const form = $(e.target);
+	      const json = packageJson(form);
+
+	      console.log(json);
+	      $.post("https://dicercestaffing.com/insert_employee_info.html", json);
+	  });
+
+	  // formats the phone number once entered
+	  $("#phone").change(function() {
+	      var phoneNo = $(this).val();
+	      phoneNo = phoneNo.replace(/(\d{3})(\d{3})(\d{4})/, "($1)$2-$3");
+	      $(this).val(phoneNo);
+	  });
+      });
+    </script>
+    <link rel="stylesheet" href="styles/employeeinfo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  </head>
+  <body>
+    <div class="page-heading">
+      <p class="website-name">DiCerce Staffing</p>
+    </div>
+    <div class="content">
+      <p id="form-title" class="form-title">Employee Information</p>
+      
+      <p class="instructions"> Enter the employee`s information in the fields below:</p>
+      <div class="data-entry">
+	<form id='data'>
+	  <label for="emp-name">Employee Name</label>
+	  <input type="text" id="emp-name" name="emp-name" class="entry-field"><br><br>
+	  
+	  <label for="emp-no">Employee Number</label>
+	  <input type="text" id="emp-no" name="emp-no" class="entry-field"><br><br>
+	  
+	  <label for="phone">Phone Number</label>
+	  <input type="text" id="phone" name="phone" class="entry-field" placeholder="xxx-xxx-xxxx"><br><br>
+	  
+	  <label for="address">Address</label>
+	  <input type="text" id="address" name="address" class="entry-field"><br><br>
+	  
+	  <label for="city">City</label>
+	  <input type="text" id="city" name="city" class="entry-field"><br><br>
+	  
+	  <label for="state">State</label>
+	  <select id="state" name="state" class="entry-field">
+	    <option value="">--  Select a state  --</option>
+	    <option value="AL">Alabama</option>
+	    <option value="AK">Alaska</option>
+	    <option value="AZ">Arizona</option>
+	    <option value="AR">Arkansas</option>
+	    <option value="CA">California</option>
+	    <option value="CO">Colorado</option>
+	    <option value="CT">Connecticut</option>
+	    <option value="DE">Delaware</option>
+	    <option value="DC">District Of Columbia</option>
+	    <option value="FL">Florida</option>
+	    <option value="GA">Georgia</option>
+	    <option value="HI">Hawaii</option>
+	    <option value="ID">Idaho</option>
+	    <option value="IL">Illinois</option>
+	    <option value="IN">Indiana</option>
+	    <option value="IA">Iowa</option>
+	    <option value="KS">Kansas</option>
+	    <option value="KY">Kentucky</option>
+	    <option value="LA">Louisiana</option>
+	    <option value="ME">Maine</option>
+	    <option value="MD">Maryland</option>
+	    <option value="MA">Massachusetts</option>
+	    <option value="MI">Michigan</option>
+	    <option value="MN">Minnesota</option>
+	    <option value="MS">Mississippi</option>
+	    <option value="MO">Missouri</option>
+	    <option value="MT">Montana</option>
+	    <option value="NE">Nebraska</option>
+	    <option value="NV">Nevada</option>
+	    <option value="NH">New Hampshire</option>
+	    <option value="NJ">New Jersey</option>
+	    <option value="NM">New Mexico</option>
+	    <option value="NY">New York</option>
+	    <option value="NC">North Carolina</option>
+	    <option value="ND">North Dakota</option>
+	    <option value="OH">Ohio</option>
+	    <option value="OK">Oklahoma</option>
+	    <option value="OR">Oregon</option>
+	    <option value="PA">Pennsylvania</option>
+	    <option value="RI">Rhode Island</option>
+	    <option value="SC">South Carolina</option>
+	    <option value="SD">South Dakota</option>
+	    <option value="TN">Tennessee</option>
+	    <option value="TX">Texas</option>
+	    <option value="UT">Utah</option>
+	    <option value="VT">Vermont</option>
+	    <option value="VA">Virginia</option>
+	    <option value="WA">Washington</option>
+	  <option value="WV">West Virginia</option>
+	    <option value="WI">Wisconsin</option>
+	    <option value="WY">Wyoming</option>
+	  </select><br><br>
+	  
+	  <label for="zip">Zip</label>
+	  <input type="text" id="zip" name="zip" class="entry-field"><br><br>
+	  
+	  <label for="current">Current Employee</label>
+	  <input type="checkbox" id="current" name="current" ><br><br>
+	  
+	  
+	  <input type="submit" id="submit" class="submit-btn">
+	</form>
+      </div>
+    </div>
+  </body>
+</html>

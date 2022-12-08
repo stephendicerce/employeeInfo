@@ -1,0 +1,53 @@
+div.data-entry {
+    position:static;
+    width: max-content;
+    border: 3px solid gray;
+    border-radius: 5px;
+    padding-top: 35px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 35px;
+    margin: auto;
+    background: ghostwhite;
+}
+
+div.page-heading {
+    position: fixed;
+    width: 100%;
+    background: lightgray;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+div.content {
+    padding-top: 70px;
+}
+
+label {
+    display: inline-block;
+    width: 40%;
+    text-align: right;
+    white-space: nowrap;
+    padding: 5px;
+}
+
+p.instructions {
+    text-align: center;
+    font-style: italic;
+}
+
+p.form-title {
+    font-size: 18pt;
+    padding-left: 20%;
+    padding-top: 1%;
+    font-family: verdana;
+    font-weight: bold;
+}
+
+p.website-name {
+    font-size: 24pt;
+    padding-left: 2%;
+    font-family: verdana;
+    font-weight: bold;
+}
